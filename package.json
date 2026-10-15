@@ -1,0 +1,27 @@
+{
+  "name": "vaultcore-infrastructure",
+  "version": "1.0.0",
+  "description": "Vaultcore: edge-native, local-first inline reverse-proxy gateway (Purecore Engine + Plexroute Pipeline) for HIPAA-conscious AI traffic.",
+  "type": "module",
+  "private": true,
+  "main": "gatewayRouter.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "esbuild gatewayRouter.js localEngine.js --bundle --platform=node --target=node20 --format=esm --packages=external --minify-whitespace --minify-syntax --legal-comments=none --outdir=dist",
+    "typecheck": "tsc -p tsconfig.json",
+    "start": "node dist/gatewayRouter.js",
+    "dev": "node --watch gatewayRouter.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.3"
+  }
+}
